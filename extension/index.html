@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#F3F4F7" id="meta-theme-color">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="application-name" content="LinkBox">
+    <title>LinkBox // Organizador Inteligente de Links</title>
+    <link rel="manifest" id="pwa-manifest" href="data:application/manifest+json;utf8,%7B%22name%22%3A%20%22LinkBox%20//%20Organizador%20Inteligente%20de%20Links%22%2C%20%22short_name%22%3A%20%22LinkBox%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%23F3F4F7%22%2C%20%22theme_color%22%3A%20%22%23DF6D27%22%2C%20%22share_target%22%3A%20%7B%22action%22%3A%20%22/%22%2C%20%22method%22%3A%20%22GET%22%2C%20%22params%22%3A%20%7B%22title%22%3A%20%22title%22%2C%20%22text%22%3A%20%22text%22%2C%20%22url%22%3A%20%22url%22%7D%7D%7D">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg viewBox='0 0 2048 2048' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%231F1D1E' d='M 820.745 774.484 C 843.943 773.99 873.918 775.257 896.837 776.679 C 976.15 781.6 1061.49 792.356 1128.78 838.041 C 1194.53 882.69 1242.68 950.654 1257.85 1029.03 C 1208.06 1030.81 1114.09 1032.21 1070.34 1012.39 C 1057.54 1006.59 1048.04 997.356 1037.19 988.759 C 1026.23 980.074 1014.43 972.7 1001.26 967.858 C 926.976 940.551 772.06 945.932 690.612 955.345 C 544.138 972.273 403.224 1022 309.048 1140.88 C 237.059 1230.09 204.079 1344.56 217.568 1458.39 C 231.435 1569.88 289.137 1671.25 377.917 1740.09 C 465.695 1809.18 578.939 1849.08 690.998 1834.81 C 903.421 1807.77 1039.63 1638.79 1082.95 1438.5 C 1088.66 1412.8 1092.59 1386.74 1094.72 1360.5 C 1095.11 1355.7 1095.66 1338.72 1097.53 1336.33 L 1102 1335.91 C 1122.33 1336.33 1146.1 1338.33 1167.22 1339.02 C 1201.81 1339.88 1236.42 1340.02 1271.01 1339.43 C 1266.42 1377.03 1265.41 1411.49 1258.02 1450.12 C 1230.46 1594.11 1175.15 1722.01 1073.17 1828.16 C 964.32 1939.53 816.106 2003.75 660.404 2006.98 C 493.262 2010.27 337.212 1952.99 216.275 1837.64 C -28.8002 1603.91 -23.8879 1230.94 211.223 991.613 C 372.412 827.536 598.052 777.654 820.745 774.484 z'/%3E%3Cpath fill='%23DF6D27' d='M 1396.31 39.4755 C 1512.61 37.6317 1629.32 66.1793 1727.77 129.345 C 1864.71 218.317 1960.59 358.153 1994.23 517.959 C 2028.26 673.494 1996.72 832.794 1909.46 968.647 C 1732.09 1244.52 1388.18 1291.96 1087.03 1264.59 C 1048.66 1261.11 1009.23 1251.21 973.5 1236.71 C 886.848 1201.56 809.795 1113.6 790.003 1021.45 C 832.844 1021.23 946.663 1019.89 981.612 1037.17 C 998.635 1045.58 1010.96 1060.85 1027.08 1070.83 C 1056.87 1089.28 1097.11 1093.28 1131.48 1096.35 C 1235.42 1105.62 1351.69 1098.17 1453.25 1074.63 C 1620.82 1041.23 1770.82 924.626 1816.58 756.08 C 1854.48 616.481 1821.61 459.393 1726.31 349.829 C 1654.8 266.642 1552.75 215.815 1443.27 208.849 C 1329.89 200.394 1217.92 238.271 1132.96 313.824 C 1017.91 415.124 972.93 564.552 963.56 712.937 C 951.318 713.323 939.91 712.409 927.711 712.049 L 856.285 710.134 C 833.991 709.611 807.256 711.231 786.079 709.852 L 786.001 708.387 C 784.917 684.003 793.699 644.934 797.397 620.219 C 844.945 302.493 1060.97 53.5881 1396.31 39.4755 z'/%3E%3Cpath fill='%23DF6D27' d='M 629.683 1234.44 C 728.899 1227.18 815.058 1302.08 821.686 1401.34 C 828.315 1500.6 752.879 1586.29 653.58 1592.29 C 555.159 1598.24 470.396 1523.62 463.826 1425.24 C 457.257 1326.85 531.345 1241.62 629.683 1234.44 z'/%3E%3Cpath fill='%231F1D1E' d='M 1389.32 459.332 C 1486.96 448.395 1574.96 518.749 1585.79 616.408 C 1596.61 714.067 1526.16 801.986 1428.49 812.698 C 1330.98 823.393 1243.23 753.077 1232.42 655.577 C 1221.62 558.078 1291.83 470.252 1389.32 459.332 z'/%3E%3C/svg%3E">
+    
+    <style>
+        /* --- TAILWIND CSS EMBUTIDO (100% OFFLINE READY) --- */
+        *, ::before, ::after { box-sizing: border-box; border-width: 0; border-style: solid; border-color: var(--border-main, #E3E5EB); }
+        html { line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; }
+        body { margin: 0; line-height: inherit; }
+        hr { height: 0; color: inherit; border-top-width: 1px; }
+        h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; margin: 0; }
+        p { margin: 0; }
+        a { color: inherit; text-decoration: inherit; }
+        b, strong { font-weight: bolder; }
+        code, kbd, samp, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 1em; }
+        button, input, optgroup, select, textarea { font-family: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-size: 100%; font-weight: inherit; line-height: inherit; color: inherit; margin: 0; padding: 0; background-color: transparent; }
+        button, select { text-transform: none; }
+        button, [type='button'], [type='reset'], [type='submit'] { -webkit-appearance: button; cursor: pointer; }
+        button:disabled { cursor: default; }
+        img, svg, video, canvas, audio, iframe, embed, object { display: block; vertical-align: middle; }
+        img, video { max-width: 100%; height: auto; }
+        ol, ul, menu { list-style: none; margin: 0; padding: 0; }
+        textarea { resize: vertical; }
+        input::placeholder, textarea::placeholder { opacity: 1; color: var(--text-muted, #6B7280); }
+
+        /* Layout & Display */
+        .block { display: block; }
+        .flex { display: flex; }
+        .inline-flex { display: inline-flex; }
+        .grid { display: grid; }
+        .hidden { display: none !important; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .fixed { position: fixed; }
+        .sticky { position: sticky; }
+        .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+        .inset-x-4 { left: 1rem; right: 1rem; }
+        .top-0 { top: 0; }
+        .left-0 { left: 0; }
+        .bottom-4 { bottom: 1rem; }
+        .z-0 { z-index: 0; }
+        .z-10 { z-index: 10; }
+        .z-20 { z-index: 20; }
+        .z-30 { z-index: 30; }
+        .z-40 { z-index: 40; }
+        .z-50 { z-index: 50; }
+        .z-60 { z-index: 60; }
+
+        /* Flexbox & Grid */
+        .flex-1 { flex: 1 1 0%; }
+        .shrink-0 { flex-shrink: 0; }
+        .flex-col { flex-direction: column; }
+        .flex-wrap { flex-wrap: wrap; }
+        .items-center { align-items: center; }
+        .items-end { align-items: flex-end; }
+        .items-stretch { align-items: stretch; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .justify-end { justify-content: flex-end; }
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+        .col-span-5 { grid-column: span 5 / span 5; }
+        .col-span-7 { grid-column: span 7 / span 7; }
+        .gap-1 { gap: 0.25rem; }
+        .gap-1\.5 { gap: 0.375rem; }
+        .gap-2 { gap: 0.5rem; }
+        .gap-2\.5 { gap: 0.625rem; }
+        .gap-3 { gap: 0.75rem; }
+        .gap-4 { gap: 1rem; }
+
+        /* Spacing & Space-Y */
+        .space-y-1 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.25rem; }
+        .space-y-1\.5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.375rem; }
+        .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.5rem; }
+        .space-y-2\.5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.625rem; }
+        .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem; }
+        .space-y-4 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem; }
+
+        /* Sizing */
+        .w-2\.5 { width: 0.625rem; }
+        .w-3\.5 { width: 0.875rem; }
+        .w-4 { width: 1rem; }
+        .w-5 { width: 1.25rem; }
+        .w-6 { width: 1.5rem; }
+        .w-7 { width: 1.75rem; }
+        .w-8 { width: 2rem; }
+        .w-9 { width: 2.25rem; }
+        .w-10 { width: 2.5rem; }
+        .w-11 { width: 2.75rem; }
+        .w-12 { width: 3rem; }
+        .w-80 { width: 20rem; }
+        .w-\[46px\] { width: 46px; }
+        .w-fit { width: fit-content; }
+        .w-full { width: 100%; }
+        .min-w-0 { min-width: 0px; }
+        .max-w-sm { max-width: 24rem; }
+        .max-w-md { max-width: 28rem; }
+        .max-w-5xl { max-width: 64rem; }
+        .max-w-\[86vw\] { max-width: 86vw; }
+        .max-w-\[105px\] { max-width: 105px; }
+        .max-w-\[120px\] { max-width: 120px; }
+
+        .h-2 { height: 0.5rem; }
+        .h-2\.5 { height: 0.625rem; }
+        .h-3\.5 { height: 0.875rem; }
+        .h-4 { height: 1rem; }
+        .h-5 { height: 1.25rem; }
+        .h-6 { height: 1.5rem; }
+        .h-7 { height: 1.75rem; }
+        .h-8 { height: 2rem; }
+        .h-9 { height: 2.25rem; }
+        .h-10 { height: 2.5rem; }
+        .h-1\/2 { height: 50%; }
+        .h-full { height: 100%; }
+        .h-\[100dvh\] { height: 100dvh; }
+        .min-h-screen { min-height: 100vh; }
+        .max-h-\[85vh\] { max-height: 85vh; }
+        .max-h-\[88vh\] { max-height: 88vh; }
+        .max-h-\[90vh\] { max-height: 90vh; }
+
+        /* Padding & Margin */
+        .p-0 { padding: 0px; }
+        .p-1 { padding: 0.25rem; }
+        .p-1\.5 { padding: 0.375rem; }
+        .p-3 { padding: 0.75rem; }
+        .p-3\.5 { padding: 0.875rem; }
+        .p-4 { padding: 1rem; }
+        .p-5 { padding: 1.25rem; }
+        .px-1\.5 { padding-left: 0.375rem; padding-right: 0.375rem; }
+        .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .px-2\.5 { padding-left: 0.625rem; padding-right: 0.625rem; }
+        .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+        .px-3\.5 { padding-left: 0.875rem; padding-right: 0.875rem; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .py-0\.2 { padding-top: 0.05rem; padding-bottom: 0.05rem; }
+        .py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
+        .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+        .py-1\.5 { padding-top: 0.375rem; padding-bottom: 0.375rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .py-3\.5 { padding-top: 0.875rem; padding-bottom: 0.875rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .pt-1 { padding-top: 0.25rem; }
+        .pt-2 { padding-top: 0.5rem; }
+        .pt-3 { padding-top: 0.75rem; }
+        .pb-3 { padding-bottom: 0.75rem; }
+        .pl-0\.5 { padding-left: 0.125rem; }
+        .pr-1\.5 { padding-right: 0.375rem; }
+
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .-mt-1 { margin-top: -0.25rem; }
+        .mt-0\.5 { margin-top: 0.125rem; }
+        .mt-1 { margin-top: 0.25rem; }
+        .mt-1\.5 { margin-top: 0.375rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-2\.5 { margin-top: 0.625rem; }
+        .mt-3 { margin-top: 0.75rem; }
+        .mt-4 { margin-top: 1rem; }
+        .ml-0\.5 { margin-left: 0.125rem; }
+        .ml-1 { margin-left: 0.25rem; }
+        .ml-2 { margin-left: 0.5rem; }
+        .ml-3 { margin-left: 0.75rem; }
+        .mr-2 { margin-right: 0.5rem; }
+
+        /* Typography */
+        .text-\[9px\] { font-size: 9px; line-height: 1.2; }
+        .text-\[10px\] { font-size: 10px; line-height: 1.25; }
+        .text-\[11px\] { font-size: 11px; line-height: 1.3; }
+        .text-\[13px\] { font-size: 13px; line-height: 1.35; }
+        .text-xs { font-size: 0.75rem; line-height: 1rem; }
+        .text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+        .text-base { font-size: 1rem; line-height: 1.5rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .font-medium { font-weight: 500; }
+        .font-bold { font-weight: 700; }
+        .font-extrabold { font-weight: 800; }
+        .font-black { font-weight: 900; }
+        .uppercase { text-transform: uppercase; }
+        .tracking-tight { letter-spacing: -0.025em; }
+        .leading-none { line-height: 1; }
+        .leading-tight { line-height: 1.25; }
+        .leading-snug { line-height: 1.375; }
+        .leading-relaxed { line-height: 1.625; }
+        .text-left { text-align: left; }
+        .text-center { text-align: center; }
+        .truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; }
+        .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+        .list-disc { list-style-type: disc; }
+        .list-inside { list-style-position: inside; }
+
+        /* Colors & Backgrounds */
+        .bg-transparent { background-color: transparent; }
+        .bg-accent { background-color: rgb(var(--accent-rgb)); }
+        .bg-accent\/15 { background-color: rgb(var(--accent-rgb) / 0.15); }
+        .bg-ink { background-color: var(--ink); }
+        .bg-amber-500 { background-color: #f59e0b; }
+        .bg-amber-500\/15 { background-color: rgba(245, 158, 11, 0.15); }
+        .bg-amber-500\/20 { background-color: rgba(245, 158, 11, 0.2); }
+        .bg-amber-600 { background-color: #d97706; }
+        .bg-rose-500 { background-color: #f43f5e; }
+        .bg-rose-500\/15 { background-color: rgba(244, 63, 94, 0.15); }
+        .bg-stone-400\/50 { background-color: rgba(168, 162, 158, 0.5); }
+        .bg-black\/10 { background-color: rgba(0, 0, 0, 0.1); }
+        .bg-black\/25 { background-color: rgba(0, 0, 0, 0.25); }
+        .bg-black\/60 { background-color: rgba(0, 0, 0, 0.6); }
+        .bg-white\/95 { background-color: rgba(255, 255, 255, 0.95); }
+        .bg-\[#0057B7\] { background-color: #0057B7; }
+        .bg-\[#FFD700\] { background-color: #FFD700; }
+        .bg-\[#0F1115\] { background-color: #0F1115; }
+
+        .text-white { color: #ffffff; }
+        .text-\[#FFFFFF\] { color: #FFFFFF; }
+        .text-\[#9CA3AF\] { color: #9CA3AF; }
+        .text-accent { color: rgb(var(--accent-rgb)); }
+        .text-onaccent { color: var(--on-accent); }
+        .text-ink { color: var(--ink); }
+        .text-onink { color: var(--on-ink); }
+        .text-amber-500 { color: #f59e0b; }
+        .text-amber-600 { color: #d97706; }
+        .text-rose-500 { color: #f43f5e; }
+
+        /* Borders & Rings */
+        .border { border-width: 1px; }
+        .border-t { border-top-width: 1px; }
+        .border-b { border-bottom-width: 1px; }
+        .border-l { border-left-width: 1px; }
+        .border-r { border-right-width: 1px; }
+        .border-transparent { border-color: transparent; }
+        .border-accent { border-color: rgb(var(--accent-rgb)) !important; }
+        .border-accent\/30 { border-color: rgb(var(--accent-rgb) / 0.3) !important; }
+        .border-accent\/40 { border-color: rgb(var(--accent-rgb) / 0.4) !important; }
+        .border-amber-500\/40 { border-color: rgba(245, 158, 11, 0.4) !important; }
+        .border-black\/10 { border-color: rgba(0, 0, 0, 0.1) !important; }
+        .ring-2 { box-shadow: 0 0 0 2px rgb(var(--accent-rgb)); }
+
+        /* Border Radius */
+        .rounded-xs { border-radius: 0.125rem; }
+        .rounded { border-radius: 0.25rem; }
+        .rounded-md { border-radius: 0.375rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-xl { border-radius: 0.75rem; }
+        .rounded-t-2xl { border-top-left-radius: 1rem; border-top-right-radius: 1rem; }
+        .rounded-full { border-radius: 9999px; }
+
+        /* Effects & Filters */
+        .shadow-2xs { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04); }
+        .shadow-xs { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+        .shadow-sm { box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1); }
+        .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1); }
+        .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.28); }
+        .drop-shadow-xs { filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05)); }
+        .backdrop-blur-xs { backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); }
+        .backdrop-blur-md { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+
+        .opacity-0 { opacity: 0; }
+        .opacity-45 { opacity: 0.45; }
+        .opacity-50 { opacity: 0.5; }
+        .opacity-55 { opacity: 0.55; }
+        .opacity-65 { opacity: 0.65; }
+        .opacity-70 { opacity: 0.7; }
+        .opacity-75 { opacity: 0.75; }
+        .opacity-80 { opacity: 0.8; }
+        .opacity-85 { opacity: 0.85; }
+
+        /* Overflow, Scroll & Touch */
+        .overflow-hidden { overflow: hidden; }
+        .overflow-x-auto { overflow-x: auto; }
+        .overflow-y-auto { overflow-y: auto; }
+        .overscroll-contain { overscroll-behavior: contain; }
+        .object-contain { object-fit: contain; }
+        .outline-none { outline: 2px solid transparent; outline-offset: 2px; }
+        .resize-none { resize: none; }
+        .select-none { user-select: none; -webkit-user-select: none; }
+        .touch-none { touch-action: none; }
+        .touch-pan-x { touch-action: pan-x; }
+        .touch-pan-y { touch-action: pan-y; }
+        .cursor-pointer { cursor: pointer; }
+        .cursor-not-allowed { cursor: not-allowed; }
+        .cursor-grab { cursor: grab; }
+        .active\:cursor-grabbing:active { cursor: grabbing; }
+
+        /* Transforms & Transitions */
+        .-translate-x-full { transform: translateX(-100%); }
+        .transition { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+        .transition-transform { transition-property: transform; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+        .duration-300 { transition-duration: 300ms; }
+        .ease-out { transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+
+        /* Hover & Focus states */
+        .hover\:border-accent:hover { border-color: rgb(var(--accent-rgb)) !important; }
+        .hover\:text-accent:hover { color: rgb(var(--accent-rgb)) !important; }
+        .hover\:bg-rose-600:hover { background-color: #e11d48; }
+        .hover\:opacity-80:hover { opacity: 0.8; }
+        .hover\:opacity-85:hover { opacity: 0.85; }
+        .hover\:opacity-90:hover { opacity: 0.9; }
+        .hover\:opacity-100:hover { opacity: 1; }
+        .hover\:underline:hover { text-decoration-line: underline; }
+        .focus\:border-accent:focus { border-color: rgb(var(--accent-rgb)) !important; }
+
+        /* Responsive Breakpoints (sm: 640px, md: 768px) */
+        @media (min-width: 640px) {
+            .sm\:hidden { display: none !important; }
+            .sm\:items-center { align-items: center; }
+            .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .sm\:p-4 { padding: 1rem; }
+            .sm\:p-5 { padding: 1.25rem; }
+            .sm\:px-5 { padding-left: 1.25rem; padding-right: 1.25rem; }
+            .sm\:rounded-xl { border-radius: 0.75rem; }
+            .sm\:border { border-width: 1px; }
+            .sm\:text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+            .sm\:text-base { font-size: 1rem; line-height: 1.5rem; }
+            .sm\:text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+            .sm\:max-w-\[140px\] { max-width: 140px; }
+            .sm\:max-w-\[180px\] { max-width: 180px; }
+        }
+        @media (min-width: 768px) {
+            .md\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+            .md\:col-span-5 { grid-column: span 5 / span 5; }
+            .md\:col-span-7 { grid-column: span 7 / span 7; }
+            .md\:border-l { border-left-width: 1px; }
+            .md\:pl-4 { padding-left: 1rem; }
+        }
+        @media (min-width: 1024px) {
+            .lg\:flex-row { flex-direction: row; }
+            .lg\:static { position: static; }
+            .lg\:sticky { position: sticky; }
+            .lg\:top-0 { top: 0; }
+            .lg\:z-20 { z-index: 20; }
+            .lg\:h-screen { height: 100vh; }
+            .lg\:translate-x-0 { transform: translateX(0) !important; }
+            .lg\:shadow-none { box-shadow: none !important; }
+            .lg\:hidden { display: none !important; }
+            .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .lg\:max-w-6xl { max-width: 72rem; }
+        }
+        body.ext-popup {
+            width: 420px;
+            min-width: 420px;
+            max-width: 420px;
+            min-height: 540px;
+            max-height: 600px;
+            overflow-x: hidden;
+        }
+        body.ext-popup .safe-top-header { padding-top: 0.65rem; padding-bottom: 0.65rem; }
+        body.ext-popup main { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+
+        :root {
+            --bg-body: #F3F4F7;
+            --text-main: #0F1115;
+            --text-muted: #6B7280;
+            --bg-surface: #FFFFFF;
+            --bg-header: rgba(243, 244, 247, 0.86);
+            --border-main: #E3E5EB;
+            --bg-input: #ECEEF3;
+            --bg-card: #FFFFFF;
+            --icon-stroke: #0F1115;
+            --accent-rgb: 217 107 39;
+            --on-accent: #FFFFFF;
+            --ink: #0F1115;
+            --on-ink: #FFFFFF;
+        }
+        body[data-theme="dim"] {
+            --bg-body: #444852;
+            --text-main: #F8F9FA;
+            --text-muted: #B4B9C4;
+            --bg-surface: #4F545F;
+            --bg-header: rgba(68, 72, 82, 0.88);
+            --border-main: #666C7A;
+            --bg-input: #383B44;
+            --bg-card: #585D69;
+            --icon-stroke: #F8F9FA;
+            --accent-rgb: 224 116 48;
+            --on-accent: #FFFFFF;
+            --ink: #F8F9FA;
+            --on-ink: #444852;
+        }
+        body[data-theme="oled"] {
+            --bg-body: #000000;
+            --text-main: #F1F2F6;
+            --text-muted: #80858F;
+            --bg-surface: #0A0A0C;
+            --bg-header: rgba(0, 0, 0, 0.88);
+            --border-main: #1C1E24;
+            --bg-input: #131418;
+            --bg-card: #0E0F12;
+            --icon-stroke: #F1F2F6;
+            --accent-rgb: 217 107 39;
+            --on-accent: #FFFFFF;
+            --ink: #F1F2F6;
+            --on-ink: #000000;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { scrollbar-gutter: stable; overflow-x: clip; font-size: 17px; transition: font-size 0.15s ease; }
+        html[data-font-scale="sm"] { font-size: 15.5px; }
+        html[data-font-scale="md"] { font-size: 17px; }
+        html[data-font-scale="lg"] { font-size: 18.5px; }
+        html[data-font-scale="lg"] header h1 { font-size: 1.05rem; }
+        html[data-font-scale="lg"] #cards-container p { line-height: 1.38; }
+        
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0; width: 100%; overflow-x: clip;
+            background-color: var(--bg-body); color: var(--text-main);
+            user-select: none; transition: background-color 0.2s ease, color 0.2s ease;
+            overscroll-behavior-y: none;
+        }
+
+        #app-sidebar, #sidebar-overlay { will-change: transform, opacity; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+        #app-sidebar { touch-action: pan-y; }
+        #sidebar-overlay { transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1); }
+
+        .safe-top-header { padding-top: calc(max(env(safe-area-inset-top, 0px), 16px) + 0.35rem); padding-bottom: 0.7rem; }
+        .safe-top-sidebar { padding-top: calc(max(env(safe-area-inset-top, 0px), 16px) + 0.35rem); padding-bottom: 0.75rem; }
+
+        .font-mono-code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Roboto Mono', monospace; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .theme-surface { background-color: var(--bg-surface); border-color: var(--border-main); }
+        .theme-header { background-color: var(--bg-header); border-color: var(--border-main); }
+        .theme-input { background-color: var(--bg-input); color: var(--text-main); }
+        .theme-card { background-color: var(--bg-card); border-color: var(--border-main); }
+        .theme-muted { color: var(--text-muted); }
+
+        .mono-icon { stroke: var(--icon-stroke); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+        .key-press { transition: transform 0.12s ease, opacity 0.12s ease; }
+        .key-press:active { transform: scale(0.97); }
+
+        .sheet-backdrop { transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1); opacity: 0; overscroll-behavior: contain; }
+        .sheet-panel { transform: translateY(100%); transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1); overscroll-behavior: contain; touch-action: pan-y; -webkit-overflow-scrolling: touch; }
+        .sheet-backdrop.open { opacity: 1; }
+        .sheet-backdrop.open .sheet-panel { transform: translateY(0); }
+
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(150, 145, 135, 0.35); border-radius: 4px; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+        /* Calendar Dynamic Classes */
+        .grid-cols-7 { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+        .gap-x-1 { column-gap: 0.25rem; }
+        .gap-y-2 { row-gap: 0.5rem; }
+        .border-2 { border-width: 2px; }
+        .bg-accent\/10 { background-color: rgb(var(--accent-rgb) / 0.1); }
+        .bg-accent\/20 { background-color: rgb(var(--accent-rgb) / 0.2); }
+        .border-accent\/40 { border-color: rgb(var(--accent-rgb) / 0.4) !important; }
+        .text-rose-500\/80 { color: rgba(244, 63, 94, 0.8); }
+        .opacity-60 { opacity: 0.6; }
+        .opacity-75 { opacity: 0.75; }
+        .w-10 { width: 2.5rem; }
+        .h-10 { height: 2.5rem; }
+        .hover\:opacity-80:hover { opacity: 0.8; }
+
+    
+        .bottom-6 { bottom: 1.5rem; }
+        .z-\[60\] { z-index: 60; }
+        .z-\[70\] { z-index: 70; }
+        .bg-\[\#1A1C20\] { background-color: #1A1C20; }
+        .text-\[\#E5E7EB\] { color: #E5E7EB; }
+        .border-white\/5 { border-color: rgba(255, 255, 255, 0.05) !important; }
+        .hover\:bg-white\/10:hover { background-color: rgba(255, 255, 255, 0.1); }
+        .active\:scale-95:active { transform: scale(0.95); }
+        .tracking-wider { letter-spacing: 0.05em; }
+        .w-\[220px\] { width: 220px; }
+        .h-\[220px\] { height: 220px; }
+        .rounded-2xl { border-radius: 1rem; }
+
+    
+        .animate-spin { animation: spin 1s linear infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .unread-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 1px 6px;
+            font-size: 9px;
+            line-height: 1.3;
+            font-weight: 900;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 5px;
+            background-color: rgb(var(--accent-rgb) / 0.16);
+            color: rgb(var(--accent-rgb));
+            border: 1px solid rgb(var(--accent-rgb) / 0.35);
+            flex-shrink: 0;
+        }
+
+    
+        .ai-state-ok { background-color: rgba(16, 185, 129, 0.15) !important; color: #10b981 !important; border: 1px solid rgba(16, 185, 129, 0.4) !important; }
+        .ai-state-err { background-color: rgba(244, 63, 94, 0.15) !important; color: #f43f5e !important; border: 1px solid rgba(244, 63, 94, 0.4) !important; }
+        .ai-state-wait { background-color: rgba(245, 158, 11, 0.15) !important; color: #f59e0b !important; border: 1px solid rgba(245, 158, 11, 0.4) !important; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col lg:flex-row">
+
+    <div id="sidebar-overlay" data-action="close-sidebar" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 hidden opacity-0 touch-none lg:hidden"></div>
+
+    <aside id="app-sidebar" class="fixed lg:sticky top-0 left-0 z-50 lg:z-20 h-[100dvh] lg:h-screen w-80 max-w-[86vw] theme-surface border-r flex flex-col transition-transform duration-300 ease-out -translate-x-full lg:translate-x-0 shrink-0 overscroll-contain select-none shadow-2xl lg:shadow-none">
+        <div class="px-4 safe-top-sidebar border-b flex items-center justify-between gap-2 touch-none" style="border-color: var(--border-main)">
+            <div data-action="reset-and-close-sidebar" title="Mostrar todos os links" class="key-press flex items-center gap-2.5 min-w-0 cursor-pointer">
+                <div class="w-10 h-10 flex items-center justify-center shrink-0">
+                    <svg viewBox="0 0 2048 2048" class="w-full h-full drop-shadow-xs text-ink" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor" d="M 820.745 774.484 C 843.943 773.99 873.918 775.257 896.837 776.679 C 976.15 781.6 1061.49 792.356 1128.78 838.041 C 1194.53 882.69 1242.68 950.654 1257.85 1029.03 C 1208.06 1030.81 1114.09 1032.21 1070.34 1012.39 C 1057.54 1006.59 1048.04 997.356 1037.19 988.759 C 1026.23 980.074 1014.43 972.7 1001.26 967.858 C 926.976 940.551 772.06 945.932 690.612 955.345 C 544.138 972.273 403.224 1022 309.048 1140.88 C 237.059 1230.09 204.079 1344.56 217.568 1458.39 C 231.435 1569.88 289.137 1671.25 377.917 1740.09 C 465.695 1809.18 578.939 1849.08 690.998 1834.81 C 903.421 1807.77 1039.63 1638.79 1082.95 1438.5 C 1088.66 1412.8 1092.59 1386.74 1094.72 1360.5 C 1095.11 1355.7 1095.66 1338.72 1097.53 1336.33 L 1102 1335.91 C 1122.33 1336.33 1146.1 1338.33 1167.22 1339.02 C 1201.81 1339.88 1236.42 1340.02 1271.01 1339.43 C 1266.42 1377.03 1265.41 1411.49 1258.02 1450.12 C 1230.46 1594.11 1175.15 1722.01 1073.17 1828.16 C 964.32 1939.53 816.106 2003.75 660.404 2006.98 C 493.262 2010.27 337.212 1952.99 216.275 1837.64 C -28.8002 1603.91 -23.8879 1230.94 211.223 991.613 C 372.412 827.536 598.052 777.654 820.745 774.484 z"/>
+                        <path fill="#DF6D27" d="M 1396.31 39.4755 C 1512.61 37.6317 1629.32 66.1793 1727.77 129.345 C 1864.71 218.317 1960.59 358.153 1994.23 517.959 C 2028.26 673.494 1996.72 832.794 1909.46 968.647 C 1732.09 1244.52 1388.18 1291.96 1087.03 1264.59 C 1048.66 1261.11 1009.23 1251.21 973.5 1236.71 C 886.848 1201.56 809.795 1113.6 790.003 1021.45 C 832.844 1021.23 946.663 1019.89 981.612 1037.17 C 998.635 1045.58 1010.96 1060.85 1027.08 1070.83 C 1056.87 1089.28 1097.11 1093.28 1131.48 1096.35 C 1235.42 1105.62 1351.69 1098.17 1453.25 1074.63 C 1620.82 1041.23 1770.82 924.626 1816.58 756.08 C 1854.48 616.481 1821.61 459.393 1726.31 349.829 C 1654.8 266.642 1552.75 215.815 1443.27 208.849 C 1329.89 200.394 1217.92 238.271 1132.96 313.824 C 1017.91 415.124 972.93 564.552 963.56 712.937 C 951.318 713.323 939.91 712.409 927.711 712.049 L 856.285 710.134 C 833.991 709.611 807.256 711.231 786.079 709.852 L 786.001 708.387 C 784.917 684.003 793.699 644.934 797.397 620.219 C 844.945 302.493 1060.97 53.5881 1396.31 39.4755 z"/>
+                        <path fill="#DF6D27" d="M 629.683 1234.44 C 728.899 1227.18 815.058 1302.08 821.686 1401.34 C 828.315 1500.6 752.879 1586.29 653.58 1592.29 C 555.159 1598.24 470.396 1523.62 463.826 1425.24 C 457.257 1326.85 531.345 1241.62 629.683 1234.44 z"/>
+                        <path fill="currentColor" d="M 1389.32 459.332 C 1486.96 448.395 1574.96 518.749 1585.79 616.408 C 1596.61 714.067 1526.16 801.986 1428.49 812.698 C 1330.98 823.393 1243.23 753.077 1232.42 655.577 C 1221.62 558.078 1291.83 470.252 1389.32 459.332 z"/>
+                    </svg>
+                </div>
+                <div class="min-w-0">
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-lg font-black tracking-tight uppercase truncate">LinkBox</h1>
+                        <span id="total-count-pill" class="text-xs font-mono-code font-bold px-2 py-0.5 rounded-md bg-accent text-onaccent shrink-0">6</span>
+                    </div>
+                    <span class="text-[11px] font-mono-code theme-muted block truncate">Smart Link Organizer</span>
+                </div>
+            </div>
+            <button data-action="close-sidebar" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center shrink-0 lg:hidden">
+                <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+        </div>
+
+        <div id="sidebar-scroll-body" class="flex-1 overflow-y-auto overscroll-contain touch-pan-y p-4 space-y-4">
+            <div class="flex items-stretch gap-1.5">
+                <div class="flex-1 flex items-center theme-input rounded-lg px-3 py-2">
+                    <svg class="w-4 h-4 mono-icon mr-2 shrink-0 opacity-70" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+                    <input id="search-input" type="text" placeholder="Buscar..." class="w-full bg-transparent text-sm outline-none font-medium min-w-0">
+                    <button id="clear-search-btn" data-action="clear-search" class="hidden w-5 h-5 rounded-md items-center justify-center theme-muted hover:text-accent shrink-0 ml-1" title="Limpar busca">✕</button>
+                </div>
+                <button data-action="open-random" title="Abrir link aleatório" class="key-press px-3 rounded-lg theme-input flex items-center justify-center gap-1.5 font-bold text-xs hover:opacity-80 shrink-0">
+                    <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+                    <span id="btn-random-label">Aleatório</span>
+                </button>
+            </div>
+
+            <div class="space-y-2">
+                <div class="flex items-center justify-end">
+                    <button type="button" data-action="open-cats-sheet" title="Abrir todas as categorias" class="key-press px-3 py-1.5 rounded-lg theme-card border shadow-2xs flex items-center gap-1.5 text-xs font-mono-code font-extrabold uppercase hover:border-accent hover:text-accent transition cursor-pointer">
+                        <svg class="w-3.5 h-3.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                        <span id="lbl-folders-section">Categorias</span>
+                        <span id="sidebar-cats-inline-counter" class="ml-0.5 px-1.5 py-0.5 rounded-md bg-accent/15 text-accent text-[9px] font-bold">0</span>
+                        <span class="text-accent text-[11px] leading-none">›</span>
+                    </button>
+                </div>
+                <div id="folders-grid" class="grid grid-cols-1 gap-1.5"></div>
+            </div>
+
+            <div class="space-y-2">
+                <div class="flex items-center justify-end">
+                    <button type="button" data-action="open-tags-sheet" title="Abrir todas as hashtags" class="key-press px-3 py-1.5 rounded-lg theme-card border shadow-2xs flex items-center gap-1.5 text-xs font-mono-code font-extrabold uppercase hover:border-accent hover:text-accent transition cursor-pointer">
+                        <svg class="w-3.5 h-3.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+                        <span id="lbl-hashtags-section">Hashtags</span>
+                        <span id="sidebar-tags-inline-counter" class="ml-0.5 px-1.5 py-0.5 rounded-md bg-accent/15 text-accent text-[9px] font-bold">0</span>
+                        <span class="text-accent text-[11px] leading-none">›</span>
+                    </button>
+                </div>
+                <div id="sidebar-tags-preview" class="flex flex-wrap gap-1.5"></div>
+            </div>
+
+            <div class="space-y-2 pt-2 border-t" style="border-color: var(--border-main)">
+                <div class="flex items-center justify-between"><span class="text-[11px] font-mono-code font-bold uppercase theme-muted">Visualização e ordenação</span></div>
+                <div class="grid grid-cols-12 gap-1.5">
+                    <div class="col-span-7 grid grid-cols-3 gap-1 p-1 rounded-lg theme-input">
+                        <button data-action="set-layout" data-mode="small" id="layout-small-btn" title="Cartões pequenos" class="key-press py-1.5 rounded-md flex items-center justify-center text-xs font-bold transition"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+                        <button data-action="set-layout" data-mode="large" id="layout-large-btn" title="Cartões grandes" class="key-press py-1.5 rounded-md flex items-center justify-center text-xs font-bold transition"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6"/><rect x="3" y="14" width="18" height="6"/></svg></button>
+                        <button data-action="set-layout" data-mode="list" id="layout-list-btn" title="Lista" class="key-press py-1.5 rounded-md flex items-center justify-center text-xs font-bold transition"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+                    </div>
+                    <div class="col-span-5 grid grid-cols-3 gap-1 p-1 rounded-lg theme-input">
+                        <button data-action="set-theme" data-mode="light" id="theme-light-btn" title="Tema claro" class="key-press py-1.5 rounded-md flex items-center justify-center transition"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></button>
+                        <button data-action="set-theme" data-mode="dim" id="theme-dim-btn" title="Tema escuro" class="key-press py-1.5 rounded-md flex items-center justify-center transition"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+                        <button data-action="set-theme" data-mode="device" id="theme-device-btn" title="AMOLED" class="key-press py-1.5 rounded-md flex items-center justify-center transition"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16Z" fill="currentColor" stroke="none"/></svg></button>
+                    </div>
+                </div>
+                <div class="flex items-stretch gap-1.5">
+                    <div class="flex-1 grid grid-cols-3 gap-1 p-1 rounded-lg theme-input">
+                        <button data-action="set-sort" data-mode="newest" id="sort-newest-btn" class="key-press py-1.5 rounded-md text-xs font-bold transition">↓ Recentes</button>
+                        <button data-action="set-sort" data-mode="oldest" id="sort-oldest-btn" class="key-press py-1.5 rounded-md text-xs font-bold transition">↑ Antigos</button>
+                        <button data-action="set-sort" data-mode="az" id="sort-az-btn" class="key-press py-1.5 rounded-md text-xs font-bold transition">A–Z</button>
+                    </div>
+                    <button type="button" data-action="open-calendar-sheet" title="Calendário de atividades" class="key-press w-[46px] rounded-lg theme-input flex items-center justify-center text-accent hover:bg-accent/15 transition shrink-0">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                            <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    <button data-action="cycle-font" id="font-cycle-btn" class="key-press w-[46px] rounded-lg theme-input flex items-center justify-center font-mono-code font-black text-[13px] transition shrink-0" title="Tamanho do texto">A</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="p-4 border-t space-y-2 touch-none" style="border-color: var(--border-main)">
+            <div id="export-choice-bar" class="hidden grid-cols-2 gap-1.5 p-1.5 rounded-xl theme-input">
+                <button data-action="export-html" class="key-press py-2 px-2.5 rounded-lg theme-card border text-xs font-bold flex items-center justify-center gap-1.5">
+                    <span class="font-mono-code text-accent">.HTML</span>
+                    <span id="lbl-exp-html">Para navegador</span>
+                </button>
+                <button data-action="export-json" class="key-press py-2 px-2.5 rounded-lg theme-card border text-xs font-bold flex items-center justify-center gap-1.5">
+                    <span class="font-mono-code text-accent">.JSON</span>
+                    <span id="lbl-exp-json">Backup completo</span>
+                </button>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <input id="ai-import-file" type="file" accept=".html,.htm,.txt,.json,.csv" class="hidden" >
+                <button data-action="trigger-import" class="key-press flex-1 h-10 px-2.5 rounded-lg bg-accent text-onaccent text-xs font-black flex items-center justify-center gap-1.5 min-w-0">
+                    <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="10" x2="12" y2="16"/><polyline points="9 13 12 16 15 13"/></svg>
+                    <span id="btn-import-ai" class="truncate">Importar</span>
+                </button>
+                <button data-action="toggle-export-bar" class="key-press flex-1 h-10 px-2.5 rounded-lg theme-input text-xs font-bold flex items-center justify-center gap-1.5 min-w-0">
+                    <svg class="w-4 h-4 mono-icon shrink-0" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="16" x2="12" y2="10"/><polyline points="9 13 12 10 15 13"/></svg>
+                    <span id="btn-export-html" class="truncate">Exportar</span>
+                </button>
+                <button data-action="open-ai-sheet" title="Pastas inteligentes: IA e reclassificação" class="key-press w-10 h-10 rounded-lg theme-input flex items-center justify-center hover:text-accent transition shrink-0">
+                    <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>
+                </button>
+                <button data-action="open-about-sheet" title="Sobre o app" class="key-press w-10 h-10 rounded-lg theme-input flex items-center justify-center hover:text-accent transition shrink-0">
+                    <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="16" x2="12" y2="11.5"/><circle cx="12" cy="8" r="0.6" fill="currentColor"/></svg>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col min-w-0 w-full">
+        <!-- CABEÇALHO SUPERIOR -->
+        <header data-action="scroll-top" class="sticky top-0 z-30 theme-header backdrop-blur-md border-b px-4 safe-top-header cursor-pointer select-none" title="Clique para voltar ao topo">
+            <div class="max-w-5xl mx-auto flex items-center justify-between gap-2.5">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <div data-action="reset-all" data-stop="1" class="key-press w-9 h-9 flex items-center justify-center shrink-0 cursor-pointer">
+                        <svg viewBox="0 0 2048 2048" class="w-full h-full drop-shadow-xs text-ink" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M 820.745 774.484 C 843.943 773.99 873.918 775.257 896.837 776.679 C 976.15 781.6 1061.49 792.356 1128.78 838.041 C 1194.53 882.69 1242.68 950.654 1257.85 1029.03 C 1208.06 1030.81 1114.09 1032.21 1070.34 1012.39 C 1057.54 1006.59 1048.04 997.356 1037.19 988.759 C 1026.23 980.074 1014.43 972.7 1001.26 967.858 C 926.976 940.551 772.06 945.932 690.612 955.345 C 544.138 972.273 403.224 1022 309.048 1140.88 C 237.059 1230.09 204.079 1344.56 217.568 1458.39 C 231.435 1569.88 289.137 1671.25 377.917 1740.09 C 465.695 1809.18 578.939 1849.08 690.998 1834.81 C 903.421 1807.77 1039.63 1638.79 1082.95 1438.5 C 1088.66 1412.8 1092.59 1386.74 1094.72 1360.5 C 1095.11 1355.7 1095.66 1338.72 1097.53 1336.33 L 1102 1335.91 C 1122.33 1336.33 1146.1 1338.33 1167.22 1339.02 C 1201.81 1339.88 1236.42 1340.02 1271.01 1339.43 C 1266.42 1377.03 1265.41 1411.49 1258.02 1450.12 C 1230.46 1594.11 1175.15 1722.01 1073.17 1828.16 C 964.32 1939.53 816.106 2003.75 660.404 2006.98 C 493.262 2010.27 337.212 1952.99 216.275 1837.64 C -28.8002 1603.91 -23.8879 1230.94 211.223 991.613 C 372.412 827.536 598.052 777.654 820.745 774.484 z"/>
+                            <path fill="#DF6D27" d="M 1396.31 39.4755 C 1512.61 37.6317 1629.32 66.1793 1727.77 129.345 C 1864.71 218.317 1960.59 358.153 1994.23 517.959 C 2028.26 673.494 1996.72 832.794 1909.46 968.647 C 1732.09 1244.52 1388.18 1291.96 1087.03 1264.59 C 1048.66 1261.11 1009.23 1251.21 973.5 1236.71 C 886.848 1201.56 809.795 1113.6 790.003 1021.45 C 832.844 1021.23 946.663 1019.89 981.612 1037.17 C 998.635 1045.58 1010.96 1060.85 1027.08 1070.83 C 1056.87 1089.28 1097.11 1093.28 1131.48 1096.35 C 1235.42 1105.62 1351.69 1098.17 1453.25 1074.63 C 1620.82 1041.23 1770.82 924.626 1816.58 756.08 C 1854.48 616.481 1821.61 459.393 1726.31 349.829 C 1654.8 266.642 1552.75 215.815 1443.27 208.849 C 1329.89 200.394 1217.92 238.271 1132.96 313.824 C 1017.91 415.124 972.93 564.552 963.56 712.937 C 951.318 713.323 939.91 712.409 927.711 712.049 L 856.285 710.134 C 833.991 709.611 807.256 711.231 786.079 709.852 L 786.001 708.387 C 784.917 684.003 793.699 644.934 797.397 620.219 C 844.945 302.493 1060.97 53.5881 1396.31 39.4755 z"/>
+                            <path fill="#DF6D27" d="M 629.683 1234.44 C 728.899 1227.18 815.058 1302.08 821.686 1401.34 C 828.315 1500.6 752.879 1586.29 653.58 1592.29 C 555.159 1598.24 470.396 1523.62 463.826 1425.24 C 457.257 1326.85 531.345 1241.62 629.683 1234.44 z"/>
+                            <path fill="currentColor" d="M 1389.32 459.332 C 1486.96 448.395 1574.96 518.749 1585.79 616.408 C 1596.61 714.067 1526.16 801.986 1428.49 812.698 C 1330.98 823.393 1243.23 753.077 1232.42 655.577 C 1221.62 558.078 1291.83 470.252 1389.32 459.332 z"/>
+                        </svg>
+                    </div>
+
+                    <div data-action="reset-all" data-stop="1" class="key-press flex flex-col min-w-0 cursor-pointer" title="Clique para limpar filtros">
+                        <div class="flex items-center gap-2">
+                            <h1 class="text-base sm:text-lg font-black tracking-tight uppercase truncate">LinkBox</h1>
+                            <span id="mobile-count-pill" class="text-[11px] font-mono-code font-bold px-1.5 py-0.5 rounded-md bg-accent text-onaccent shrink-0">6</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 mt-0.5">
+                            <span class="text-[11px] font-mono-code theme-muted block truncate">Smart Link Organizer</span>
+                            <button id="offline-queue-pill" data-action="process-offline" data-stop="1" title="Fila de links offline" class="hidden text-[10px] font-mono-code font-bold px-1.5 py-0.5 rounded-md bg-amber-500/20 text-amber-600 border border-amber-500/40 shrink-0 items-center gap-1">
+                                <span>⏳</span><span id="offline-queue-count">0</span>
+                            </button>
+                            <span id="active-filter-pill" class="hidden text-[10px] font-mono-code font-bold px-1.5 py-0.5 rounded-md bg-accent/15 text-accent border border-accent/30 truncate max-w-[120px] sm:max-w-[180px]"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2 shrink-0">
+                    <button data-action="toggle-autosave-copy" data-stop="1" id="autosave-copy-btn" title="Auto-salvar ao copiar link (ativo)" class="key-press h-10 px-2.5 rounded-lg theme-input flex items-center gap-1.5 text-xs font-bold transition">
+                        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                        <span class="hidden sm:inline" id="btn-autosave-label">Auto-copiar</span>
+                    </button>
+                    <button data-action="toggle-select-mode" data-stop="1" id="select-mode-btn" title="Seleção múltipla e exclusão" class="key-press w-10 h-10 rounded-lg theme-input flex items-center justify-center transition">
+                        <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                    </button>
+                    <button data-action="open-sidebar" data-stop="1" id="btn-open-sidebar" class="key-press h-10 px-3.5 rounded-lg theme-input flex items-center gap-2 font-bold text-sm hover:opacity-90 transition lg:hidden">
+                        <svg class="w-5 h-5 mono-icon" viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="15" y2="17"/></svg>
+                        <span id="btn-menu-label">Menu</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="max-w-5xl lg:max-w-6xl w-full mx-auto px-4 py-4 space-y-4 flex-1">
+            <div id="ext-autosave-banner" class="hidden items-center justify-between gap-2 px-3.5 py-2.5 rounded-xl theme-card border border-accent/40 text-xs font-bold shadow-xs">
+                <div class="flex items-center gap-2 min-w-0">
+                    <span class="w-2 h-2 rounded-full bg-accent shrink-0"></span>
+                    <span id="ext-autosave-text" class="truncate">Salvando página atual...</span>
+                </div>
+                <button data-action="ext-open-full" class="key-press px-2.5 py-1 rounded-lg bg-accent text-onaccent text-[11px] font-black shrink-0">Abrir em aba ↗</button>
+            </div>
+            <div class="flex items-stretch gap-2">
+                <input id="url-input" type="text"  placeholder="Cole um link ou lista de links..." class="flex-1 theme-card border rounded-lg px-3.5 py-3 text-base outline-none font-medium focus:border-accent transition min-w-0">
+                <button data-action="add-link" title="Salvar link com categorização inteligente" class="key-press bg-accent hover:opacity-90 text-white font-black text-sm px-4 sm:px-5 rounded-lg flex items-center justify-center gap-2 shrink-0 shadow-xs">
+                    <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none"><path d="M11 5v14M4 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M19 2.5l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2z" fill="currentColor"/></svg>
+                    <span id="btn-add-label">Salvar</span>
+                </button>
+            </div>
+
+            <div id="pinned-bar-wrapper" class="hidden items-center gap-1.5 overflow-x-auto no-scrollbar py-0.5"></div>
+
+            <div id="bulk-action-bar" class="hidden sticky z-20 mx-auto w-fit theme-card backdrop-blur-md bg-opacity-90 border border-accent rounded-full p-1.5 items-center justify-center gap-1.5 shadow-xl transition-all" style="top: calc(max(env(safe-area-inset-top, 0px), 16px) + 4.2rem);">
+                <button data-action="select-all-visible" class="key-press w-9 h-9 rounded-full theme-input flex items-center justify-center hover:text-accent transition" id="btn-select-all" title="Selecionar tudo">
+                    <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </button>
+                <div class="flex items-center gap-1 bg-accent/10 rounded-full px-1.5">
+                    <button data-action="open-bulk-edit" class="key-press w-9 h-9 rounded-full flex items-center justify-center text-accent hover:bg-accent/20 transition" title="Edição em massa">
+                        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </button>
+                    <span id="selected-count-label" class="text-sm font-black text-accent px-1">0</span>
+                    <button data-action="share-selected" class="key-press w-9 h-9 rounded-full flex items-center justify-center text-accent hover:bg-accent/20 transition" title="Compartilhar lista">
+                        <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                    </button>
+                </div>
+                <button data-action="delete-selected" class="key-press w-9 h-9 rounded-full bg-rose-500/15 text-rose-500 flex items-center justify-center font-extrabold transition hover:bg-rose-500 hover:text-white" id="btn-delete-selected" title="Excluir selecionados">
+                    <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg>
+                </button>
+                <button data-action="toggle-select-mode" class="key-press w-9 h-9 rounded-full theme-input flex items-center justify-center hover:opacity-80 transition" id="btn-cancel-select" title="Cancelar">
+                    <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+
+            <div id="cards-container"></div>
+        </main>
+    </div>
+
+    
+    <!-- MODAL DE EDIÇÃO EM MASSA -->
+    <div id="bulk-edit-sheet-modal" data-backdrop="close-bulk-edit" class="sheet-backdrop fixed inset-0 bg-black/60 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div id="bulk-edit-sheet-panel" class="sheet-panel theme-surface w-full max-w-md rounded-t-2xl sm:rounded-xl p-5 border-t sm:border space-y-4 max-h-[90vh] overflow-y-auto">
+            <div id="bulk-edit-drag-handle" class="w-12 h-2 bg-stone-400/50 rounded-full mx-auto -mt-1 cursor-grab active:cursor-grabbing touch-none sm:hidden"></div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-7 h-7 rounded-lg bg-accent text-onaccent flex items-center justify-center shrink-0">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                    </span>
+                    <span class="font-black text-base uppercase tracking-tight">Edição em massa</span>
+                </div>
+                <button data-action="close-bulk-edit" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center shrink-0"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            </div>
+            
+            <div class="text-xs theme-muted leading-relaxed">
+                Defina novas pastas ou tags para <b id="bulk-edit-count" class="text-accent">0</b> cartões selecionados. Campos vazios mantêm os dados atuais.
+            </div>
+
+            <div class="space-y-3">
+                <div>
+                    <label class="text-[11px] font-mono-code font-bold uppercase theme-muted">Adicionar / Substituir Pastas</label>
+                    <input id="bulk-sheet-cat" type="text" placeholder="Trabalho, Ideias..." class="w-full mt-1 theme-input rounded-lg px-3.5 py-2.5 text-sm font-bold outline-none">
+                </div>
+                <div>
+                    <label class="text-[11px] font-mono-code font-bold uppercase theme-muted">Adicionar / Substituir #Tags</label>
+                    <input id="bulk-sheet-tags" type="text" placeholder="#novo #importante" class="w-full mt-1 theme-input rounded-lg px-3.5 py-2.5 text-sm font-mono-code outline-none">
+                </div>
+                <div class="flex items-center gap-3 pt-1 text-sm font-bold">
+                    <label class="flex items-center gap-2 cursor-pointer key-press">
+                        <input type="radio" name="bulk-mode" value="add" checked class="accent-accent">
+                        <span>Adicionar aos existentes</span>
+                    </label>
+                    <label class="flex items-center gap-2 cursor-pointer key-press">
+                        <input type="radio" name="bulk-mode" value="replace" class="accent-accent">
+                        <span>Substituir atuais</span>
+                    </label>
+                </div>
+            </div>
+
+            <button data-action="apply-bulk-edit" class="key-press w-full py-3 rounded-lg bg-accent text-onaccent font-black text-sm sm:text-base flex items-center justify-center gap-2 transition mt-2">
+                Aplicar alterações
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL QR CODE -->
+    <div id="qr-modal" data-backdrop="close-qr" class="sheet-backdrop fixed inset-0 bg-black/60 hidden items-end sm:items-center justify-center p-0 sm:p-4" style="z-index: 9999;">
+        <div id="qr-panel" class="sheet-panel theme-surface w-full max-w-md rounded-t-2xl sm:rounded-xl p-5 border-t sm:border space-y-4 max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div id="qr-drag-handle" class="w-12 h-2 bg-stone-400/50 rounded-full mx-auto -mt-1 cursor-grab active:cursor-grabbing touch-none sm:hidden"></div>
+            
+            <div class="flex items-center justify-between gap-2.5">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <span id="qr-favicon" class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"></span>
+                    <div class="min-w-0 text-left">
+                        <h3 id="qr-title" class="text-sm font-mono-code font-bold truncate">domain.com</h3>
+                        <p id="qr-subtitle" class="text-xs theme-muted font-bold truncate">Page Title</p>
+                    </div>
+                </div>
+                <button data-action="close-qr" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center shrink-0" title="Fechar">
+                    <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <div class="theme-card border rounded-xl p-5 flex flex-col items-center justify-center space-y-3 shadow-2xs">
+                <div class="bg-white p-3.5 rounded-2xl border border-black/10 shadow-sm flex items-center justify-center relative shrink-0" style="width: 228px; height: 228px;">
+                    <div id="qr-container" class="w-full h-full relative flex items-center justify-center"></div>
+                </div>
+                <div id="qr-url-preview" class="text-[11px] font-mono-code theme-muted truncate w-full text-center px-2">https://example.com</div>
+            </div>
+
+            <div class="flex items-stretch gap-2 pt-0.5">
+                <button data-action="copy-qr-url" class="key-press flex-1 py-3.5 px-4 rounded-lg bg-accent text-onaccent font-black text-sm sm:text-base flex items-center justify-center gap-2 transition shadow-xs">
+                    <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    <span>Copiar URL</span>
+                </button>
+                <button data-action="share-qr-url" title="Compartilhar link" class="key-press px-4 rounded-lg theme-input font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shrink-0 hover:text-accent transition">
+                    <svg class="w-4 h-4 mono-icon shrink-0" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                    <span>Compartilhar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO DE EXCLUSÃO -->
+    <div id="confirm-modal" class="sheet-backdrop fixed inset-0 bg-black/60 z-60 hidden items-center justify-center p-4">
+        <div class="theme-surface w-full max-w-sm rounded-xl p-5 border space-y-4 shadow-2xl">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-rose-500/15 text-rose-500 flex items-center justify-center shrink-0">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+                </div>
+                <div>
+                    <h3 class="font-black text-base" id="confirm-title">Confirmar exclusão</h3>
+                    <p class="text-xs theme-muted mt-0.5" id="confirm-desc">Tem certeza que deseja excluir este item?</p>
+                </div>
+            </div>
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <button data-action="close-confirm" class="key-press px-4 py-2 rounded-lg theme-input text-xs font-bold" id="confirm-cancel-btn">Cancelar</button>
+                <button id="confirm-ok-btn" class="key-press px-5 py-2 rounded-lg bg-rose-500 text-white text-xs font-extrabold">Excluir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAINÉIS (CATEGORIAS, TAGS, SOBRE, EDIÇÃO) -->
+    <!-- CALENDÁRIO DE ATIVIDADES -->
+    <div id="calendar-sheet-modal" data-backdrop="close-calendar" class="sheet-backdrop fixed inset-0 bg-black/60 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div id="calendar-sheet-panel" class="sheet-panel theme-surface w-full max-w-md rounded-t-2xl sm:rounded-xl p-5 border-t sm:border space-y-4 max-h-[85vh] overflow-y-auto flex flex-col">
+            <div id="calendar-drag-handle" class="w-12 h-2 bg-stone-400/50 rounded-full mx-auto -mt-1 cursor-grab active:cursor-grabbing touch-none sm:hidden shrink-0"></div>
+            <div class="flex items-center justify-between shrink-0">
+                <div class="flex items-center gap-2">
+                    <span class="w-7 h-7 rounded-lg bg-accent text-onaccent font-mono-code font-black text-xs flex items-center justify-center"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+                    <span class="font-black text-base uppercase tracking-tight" id="calendar-sheet-title">Histórico de salvamentos</span>
+                </div>
+                <button data-action="close-calendar" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            </div>
+            
+            <div id="calendar-view" class="flex-1 transition-opacity duration-150 flex flex-col space-y-4 min-h-0">
+                <div class="flex items-center justify-between px-1">
+                    <button data-action="cal-month" data-delta="-1" class="key-press w-8 h-8 rounded-lg theme-input flex items-center justify-center"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+                    <span id="calendar-month-label" class="font-bold text-sm uppercase tracking-wider">Outubro 2026</span>
+                    <button data-action="cal-month" data-delta="1" class="key-press w-8 h-8 rounded-lg theme-input flex items-center justify-center"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+                </div>
+                <div class="grid grid-cols-7 gap-1 text-center mb-2">
+                    <div class="text-[10px] font-mono-code font-bold theme-muted uppercase">Seg</div>
+                    <div class="text-[10px] font-mono-code font-bold theme-muted uppercase">Ter</div>
+                    <div class="text-[10px] font-mono-code font-bold theme-muted uppercase">Qua</div>
+                    <div class="text-[10px] font-mono-code font-bold theme-muted uppercase">Qui</div>
+                    <div class="text-[10px] font-mono-code font-bold theme-muted uppercase">Sex</div>
+                    <div class="text-[10px] font-mono-code font-bold text-rose-500/80 uppercase">Sáb</div>
+                    <div class="text-[10px] font-mono-code font-bold text-rose-500/80 uppercase">Dom</div>
+                </div>
+                <div id="calendar-grid" class="grid grid-cols-7 gap-y-2 gap-x-1"></div>
+            </div>
+
+            <div id="day-dashboard-view" class="hidden transition-opacity duration-150 opacity-0 flex-col space-y-3 flex-1 min-h-0 h-full">
+                <div class="flex items-center gap-2 px-1">
+                    <button data-action="back-to-calendar" class="key-press w-8 h-8 rounded-lg theme-input flex items-center justify-center shrink-0"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+                    <div class="flex-1 text-center font-bold text-sm uppercase tracking-wider" id="dash-date-label">24 de Outubro de 2026</div>
+                    <div class="w-8 h-8"></div>
+                </div>
+                <div class="flex items-center justify-between text-xs font-mono-code font-bold theme-muted px-2 border-b pb-2" style="border-color: var(--border-main)">
+                    <span>Links salvos:</span>
+                    <span id="dash-count-label" class="text-accent bg-accent/15 px-2 py-0.5 rounded-md">0</span>
+                </div>
+                <div id="dash-items-list" class="flex-1 overflow-y-auto space-y-2 pr-1 pb-2"></div>
+            </div>
+        </div>
+    </div>
+    <div id="cats-sheet-modal" data-backdrop="close-cats-sheet" class="sheet-backdrop fixed inset-0 bg-black/60 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div id="cats-sheet-panel" class="sheet-panel theme-surface w-full max-w-md rounded-t-2xl sm:rounded-xl p-5 border-t sm:border space-y-4 max-h-[85vh] overflow-y-auto">
+            <div id="cats-drag-handle" class="w-12 h-2 bg-stone-400/50 rounded-full mx-auto -mt-1 cursor-grab active:cursor-grabbing touch-none sm:hidden"></div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-7 h-7 rounded-lg bg-accent text-onaccent font-mono-code font-black text-xs flex items-center justify-center"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></span>
+                    <span class="font-black text-base uppercase tracking-tight" id="cats-sheet-title">Todas as categorias</span>
+                </div>
+                <button data-action="close-cats-sheet" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            </div>
+            <div class="space-y-2">
+                <div class="flex items-center theme-input rounded-lg px-3 py-2">
+                    <svg class="w-4 h-4 mono-icon mr-2 shrink-0 opacity-70" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+                    <input id="cats-search-input" type="text" placeholder="Buscar categoria..." class="w-full bg-transparent text-xs sm:text-sm outline-none font-mono-code">
+                </div>
+                <div class="grid grid-cols-3 gap-1 p-1 rounded-lg theme-input">
+                    <button data-action="set-cats-sort" data-mode="popular" id="cat-sort-popular" class="key-press py-1 rounded-md text-xs font-bold transition">Populares</button>
+                    <button data-action="set-cats-sort" data-mode="az" id="cat-sort-az" class="key-press py-1 rounded-md text-xs font-bold transition">A–Z</button>
+                    <button data-action="set-cats-sort" data-mode="za" id="cat-sort-za" class="key-press py-1 rounded-md text-xs font-bold transition">Z–A</button>
+                </div>
+            </div>
+            <div id="cats-cloud-container" class="grid grid-cols-1 gap-2 py-1"></div>
+        </div>
+    </div>
+
+    <div id="tags-sheet-modal" data-backdrop="close-tags-sheet" class="sheet-backdrop fixed inset-0 bg-black/60 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div id="tags-sheet-panel" class="sheet-panel theme-surface w-full max-w-md rounded-t-2xl sm:rounded-xl p-5 border-t sm:border space-y-4 max-h-[85vh] overflow-y-auto">
+            <div id="tags-drag-handle" class="w-12 h-2 bg-stone-400/50 rounded-full mx-auto -mt-1 cursor-grab active:cursor-grabbing touch-none sm:hidden"></div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="w-7 h-7 rounded-lg bg-accent text-onaccent font-mono-code font-black text-sm flex items-center justify-center">#</span>
+                    <span class="font-black text-base uppercase tracking-tight" id="tags-sheet-title">Todas as hashtags</span>
+                </div>
+                <button data-action="close-tags-sheet" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            </div>
+            <div class="space-y-2">
+                <div class="flex items-center theme-input rounded-lg px-3 py-2">
+                    <svg class="w-4 h-4 mono-icon mr-2 shrink-0 opacity-70" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+                    <input id="tags-search-input" type="text" placeholder="Buscar tag..." class="w-full bg-transparent text-xs sm:text-sm outline-none font-mono-code">
+                </div>
+                <div class="grid grid-cols-3 gap-1 p-1 rounded-lg theme-input">
+                    <button data-action="set-tags-sort" data-mode="popular" id="tag-sort-popular" class="key-press py-1 rounded-md text-xs font-bold transition">Populares</button>
+                    <button data-action="set-tags-sort" data-mode="az" id="tag-sort-az" class="key-press py-1 rounded-md text-xs font-bold transition">A–Z</button>
+                    <button data-action="set-tags-sort" data-mode="za" id="tag-sort-za" class="key-press py-1 rounded-md text-xs font-bold transition">Z–A</button>
+                </div>
+            </div>
+            <div id="tags-cloud-container" class="flex flex-wrap gap-2 py-1"></div>
+        </div>
+    </div>
+
+    <div id="about-sheet-modal" data-backdrop="close-about-sheet" class="sheet-backdrop fixed inset-0 bg-black/60 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div id="about-sheet-panel" class="sheet-panel theme-surface w-full max-w-md rounded-t-2xl sm:rounded-xl p-5 border-t sm:border space-y-4 max-h-[88vh] overflow-y-auto">
+            <div id="about-drag-handle" class="w-12 h-2 bg-stone-400/50 rounded-full mx-auto -mt-1 cursor-grab active:cursor-grabbing touch-none sm:hidden"></div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 flex items-center justify-center shrink-0">
+                        <svg viewBox="0 0 2048 2048" class="w-full h-full drop-shadow-xs text-ink" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M 820.745 774.484 C 843.943 773.99 873.918 775.257 896.837 776.679 C 976.15 781.6 1061.49 792.356 1128.78 838.041 C 1194.53 882.69 1242.68 950.654 1257.85 1029.03 C 1208.06 1030.81 1114.09 1032.21 1070.34 1012.39 C 1057.54 1006.59 1048.04 997.356 1037.19 988.759 C 1026.23 980.074 1014.43 972.7 1001.26 967.858 C 926.976 940.551 772.06 945.932 690.612 955.345 C 544.138 972.273 403.224 1022 309.048 1140.88 C 237.059 1230.09 204.079 1344.56 217.568 1458.39 C 231.435 1569.88 289.137 1671.25 377.917 1740.09 C 465.695 1809.18 578.939 1849.08 690.998 1834.81 C 903.421 1807.77 1039.63 1638.79 1082.95 1438.5 C 1088.66 1412.8 1092.59 1386.74 1094.72 1360.5 C 1095.11 1355.7 1095.66 1338.72 1097.53 1336.33 L 1102 1335.91 C 1122.33 1336.33 1146.1 1338.33 1167.22 1339.02 C 1201.81 1339.88 1236.42 1340.02 1271.01 1339.43 C 1266.42 1377.03 1265.41 1411.49 1258.02 1450.12 C 1230.46 1594.11 1175.15 1722.01 1073.17 1828.16 C 964.32 1939.53 816.106 2003.75 660.404 2006.98 C 493.262 2010.27 337.212 1952.99 216.275 1837.64 C -28.8002 1603.91 -23.8879 1230.94 211.223 991.613 C 372.412 827.536 598.052 777.654 820.745 774.484 z"/>
+                            <path fill="#DF6D27" d="M 1396.31 39.4755 C 1512.61 37.6317 1629.32 66.1793 1727.77 129.345 C 1864.71 218.317 1960.59 358.153 1994.23 517.959 C 2028.26 673.494 1996.72 832.794 1909.46 968.647 C 1732.09 1244.52 1388.18 1291.96 1087.03 1264.59 C 1048.66 1261.11 1009.23 1251.21 973.5 1236.71 C 886.848 1201.56 809.795 1113.6 790.003 1021.45 C 832.844 1021.23 946.663 1019.89 981.612 1037.17 C 998.635 1045.58 1010.96 1060.85 1027.08 1070.83 C 1056.87 1089.28 1097.11 1093.28 1131.48 1096.35 C 1235.42 1105.62 1351.69 1098.17 1453.25 1074.63 C 1620.82 1041.23 1770.82 924.626 1816.58 756.08 C 1854.48 616.481 1821.61 459.393 1726.31 349.829 C 1654.8 266.642 1552.75 215.815 1443.27 208.849 C 1329.89 200.394 1217.92 238.271 1132.96 313.824 C 1017.91 415.124 972.93 564.552 963.56 712.937 C 951.318 713.323 939.91 712.409 927.711 712.049 L 856.285 710.134 C 833.991 709.611 807.256 711.231 786.079 709.852 L 786.001 708.387 C 784.917 684.003 793.699 644.934 797.397 620.219 C 844.945 302.493 1060.97 53.5881 1396.31 39.4755 z"/>
+                            <path fill="#DF6D27" d="M 629.683 1234.44 C 728.899 1227.18 815.058 1302.08 821.686 1401.34 C 828.315 1500.6 752.879 1586.29 653.58 1592.29 C 555.159 1598.24 470.396 1523.62 463.826 1425.24 C 457.257 1326.85 531.345 1241.62 629.683 1234.44 z"/>
+                            <path fill="currentColor" d="M 1389.32 459.332 C 1486.96 448.395 1574.96 518.749 1585.79 616.408 C 1596.61 714.067 1526.16 801.986 1428.49 812.698 C 1330.98 823.393 1243.23 753.077 1232.42 655.577 C 1221.62 558.078 1291.83 470.252 1389.32 459.332 z"/>
+                        </svg>
+                    </div>
+                    <span class="font-black text-base uppercase tracking-tight" id="about-sheet-title">Como funciona</span>
+                </div>
+                <button data-action="close-about-sheet" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            </div>
+            <div id="about-sheet-body" class="space-y-3 text-sm leading-relaxed pb-3"></div>
+        </div>
+    </div>
+
+    <div id="ai-sheet-modal" data-backdrop="close-ai-sheet" class="sheet-backdrop fixed inset-0 bg-black/60 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div id="ai-sheet-panel" class="sheet-panel theme-surface w-full max-w-md rounded-t-2xl sm:rounded-xl p-5 border-t sm:border space-y-3 max-h-[90vh] overflow-y-auto">
+            <div id="ai-drag-handle" class="w-12 h-2 bg-stone-400/50 rounded-full mx-auto -mt-1 cursor-grab active:cursor-grabbing touch-none sm:hidden"></div>
+            <div class="flex items-center justify-between">
+                <span class="font-black text-base uppercase tracking-tight">Pastas inteligentes</span>
+                <button data-action="close-ai-sheet" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+            </div>
+            <div id="ai-mode-badge" class="font-mono-code text-[11px] px-2.5 py-1.5 rounded-lg theme-input"></div>
+            <p class="text-xs theme-muted leading-relaxed">Sem chave de API, as regras locais classificam pelo site e conteúdo e aprendem com suas edições. Com uma chave, a IA define as pastas automaticamente. Se a IA falhar, as regras locais assumem. Apenas título, descrição e domínio são enviados.</p>
+            <div class="space-y-1"><label class="text-[11px] font-bold uppercase theme-muted">Provedor</label>
+                <select id="ai-provider" class="theme-input w-full rounded-lg px-3 py-2.5 text-sm"></select></div>
+            <div id="ai-guide" class="theme-card border rounded-xl p-3"></div>
+            <div class="space-y-1"><label class="text-[11px] font-bold uppercase theme-muted">Chave de API</label>
+                <div class="flex items-center theme-input rounded-lg px-3 py-1.5 gap-2 border border-transparent focus-within:border-accent transition">
+                    <input id="ai-key" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Ex.: AIzaSyD-9x8Y7z6W5v4U3t2S1r0Q..." class="w-full bg-transparent py-1 text-sm font-mono-code outline-none min-w-0">
+                    <button type="button" data-action="toggle-ai-key-vis" title="Mostrar / ocultar chave" class="key-press w-7 h-7 rounded-md flex items-center justify-center opacity-60 hover:opacity-100 hover:text-accent transition shrink-0">
+                        <svg id="ai-key-eye-open" class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <svg id="ai-key-eye-off" class="w-4 h-4 mono-icon hidden" viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="space-y-1"><label class="text-[11px] font-bold uppercase theme-muted">Modelo (opcional)</label>
+                <input id="ai-model" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" class="theme-input w-full rounded-lg px-3 py-2.5 text-sm font-mono-code"></div>
+            <div id="ai-base-wrap" class="space-y-1" style="display:none"><label class="text-[11px] font-bold uppercase theme-muted">Base URL</label>
+                <input id="ai-base" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="https://host/v1" class="theme-input w-full rounded-lg px-3 py-2.5 text-sm font-mono-code"></div>
+            <div id="ai-status" class="text-xs min-h-[1.25rem] break-words"></div>
+            <div class="flex gap-2">
+                <button data-action="ai-save" class="key-press flex-1 py-3 rounded-lg bg-accent text-onaccent text-xs font-black">Salvar</button>
+                <button data-action="ai-test" class="key-press flex-1 py-3 rounded-lg theme-input text-xs font-bold">Testar</button>
+                <button data-action="ai-clear" class="key-press flex-1 py-3 rounded-lg theme-input text-xs font-bold">Limpar</button>
+            </div>
+            <div id="resort-card" class="theme-card border rounded-xl p-3.5 space-y-2.5 mt-1">
+                <div class="flex items-center justify-between gap-2">
+                    <span class="font-extrabold text-sm">Reclassificar pastas</span>
+                    <span id="resort-count" class="font-mono-code text-[11px] theme-muted" title="Recursos Web / todos"></span>
+                </div>
+                <p class="text-xs theme-muted leading-relaxed">Aplica o modo atual (regras locais ou IA) aos links já salvos. Links bloqueados e 18+ não são alterados.</p>
+                <div class="flex gap-1.5">
+                    <button id="resort-mode-web" data-action="resort-mode" data-mode="web" class="key-press flex-1 py-2 rounded-lg text-xs font-bold theme-input">Apenas «Recursos Web»</button>
+                    <button id="resort-mode-all" data-action="resort-mode" data-mode="all" class="key-press flex-1 py-2 rounded-lg text-xs font-bold theme-input">Todos os links</button>
+                </div>
+                <div id="resort-progress" class="h-1.5 rounded-full bg-black/10 overflow-hidden" style="display:none"><div id="resort-bar" class="h-full bg-accent" style="width:0%"></div></div>
+                <div id="resort-status" class="text-xs theme-muted min-h-[1rem] break-words"></div>
+                <div class="flex gap-2">
+                    <button id="resort-run" data-action="resort-run" class="key-press flex-1 py-3 rounded-lg bg-accent text-onaccent text-xs font-black">Reclassificar</button>
+                    <button id="resort-undo" data-action="resort-undo" class="key-press px-4 py-3 rounded-lg theme-input text-xs font-bold" style="display:none">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-sheet-modal" data-backdrop="close-edit-sheet" class="sheet-backdrop fixed inset-0 bg-black/60 z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div id="edit-sheet-panel" class="sheet-panel theme-surface w-full max-w-md rounded-t-2xl sm:rounded-xl p-5 border-t sm:border space-y-4 max-h-[90vh] overflow-y-auto">
+            <div id="edit-drag-handle" class="w-12 h-2 bg-stone-400/50 rounded-full mx-auto -mt-1 cursor-grab active:cursor-grabbing touch-none sm:hidden"></div>
+            <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <span id="sheet-favicon" class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"></span>
+                    <div class="min-w-0">
+                        <h3 id="sheet-domain" class="text-sm font-mono-code font-bold truncate">domain.com</h3>
+                        <span id="sheet-date" class="text-xs font-mono-code theme-muted">24/10/26</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-1.5 shrink-0">
+                    <button type="button" data-action="toggle-sheet-priority" id="sheet-priority-btn" title="Fixar link no topo de suas pastas" class="key-press h-9 px-2.5 rounded-lg theme-input flex items-center gap-1.5 text-xs font-bold transition">
+                        <span id="sheet-priority-icon" class="w-4 h-4 flex items-center justify-center"></span>
+                        <span id="sheet-priority-label">Prioridade na pasta</span>
+                    </button>
+                    <button data-action="close-edit-sheet" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center shrink-0"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+                </div>
+            </div>
+
+            <div class="flex items-stretch gap-2">
+                <button id="sheet-open-btn" data-action="open-sheet-url" class="key-press flex-1 py-3.5 px-4 rounded-lg bg-accent text-onaccent font-black text-sm sm:text-base flex items-center justify-center gap-2 transition">
+                    <span id="btn-open">Abrir</span>
+                    <span id="sheet-open-icon" class="w-4 h-4 flex items-center justify-center"></span>
+                </button>
+                <button data-action="copy-sheet-url" title="Copiar link" class="key-press w-12 rounded-lg theme-input flex items-center justify-center shrink-0"><svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+                <button type="button" data-action="show-qr" title="QR Code" class="key-press w-12 rounded-lg theme-input flex items-center justify-center shrink-0 text-accent hover:bg-accent/15 transition"><svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M7 7h.01M18 7h.01M18 18h.01M7 18h.01"/></svg></button>
+            </div>
+
+            <button type="button" data-action="toggle-sheet-lock" id="sheet-lock-toggle" class="key-press w-full py-2.5 px-3.5 rounded-lg theme-input flex items-center justify-between text-xs font-bold transition">
+                <div class="flex items-center gap-2.5">
+                    <span id="sheet-lock-icon" class="w-4 h-4 flex items-center justify-center"></span>
+                    <span id="lbl-lock-link">Bloquear abertura direta</span>
+                </div>
+                <span id="sheet-lock-state" class="font-mono-code text-[11px] px-2 py-0.5 rounded">OFF</span>
+            </button>
+
+            <div class="space-y-3">
+                <div>
+                    <label class="text-[11px] font-mono-code font-bold uppercase theme-muted">URL</label>
+                    <input id="sheet-url" type="url" class="w-full mt-1 theme-input rounded-lg px-3.5 py-2.5 text-sm font-mono-code outline-none">
+                </div>
+                <div>
+                    <label class="text-[11px] font-mono-code font-bold uppercase theme-muted" id="lbl-card-title">Título</label>
+                    <input id="sheet-title" type="text" class="w-full mt-1 theme-input rounded-lg px-3.5 py-2.5 text-sm sm:text-base font-bold outline-none">
+                </div>
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label class="text-[11px] font-mono-code font-bold uppercase theme-muted" id="lbl-note">Nota</label>
+                        <button data-action="regen-ai-note" class="text-[11px] font-mono-code font-bold text-accent hover:underline" id="btn-regen">Reescrever</button>
+                    </div>
+                    <textarea id="sheet-note" rows="3" class="w-full mt-1 theme-input rounded-lg px-3.5 py-2.5 text-sm sm:text-base outline-none resize-none"></textarea>
+                </div>
+                <div class="space-y-2.5">
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <label class="text-[11px] font-mono-code font-bold uppercase theme-muted" id="lbl-folder">Pastas (separadas por vírgula)</label>
+                            <span class="text-[10px] font-mono-code theme-muted" id="lbl-ai-cat-hint">Sugestões em cinza — toque para adicionar</span>
+                        </div>
+                        <input id="sheet-cat" type="text" placeholder="Design, Código e Tecnologia..." class="w-full mt-1 theme-input rounded-lg px-3.5 py-2.5 text-sm font-bold outline-none">
+                        <div id="sheet-cat-suggestions" class="flex flex-wrap gap-1.5 mt-2"></div>
+                    </div>
+                    <div>
+                        <label class="text-[11px] font-mono-code font-bold uppercase theme-muted" id="lbl-tags">#Tags</label>
+                        <input id="sheet-tags" type="text" class="w-full mt-1 theme-input rounded-lg px-3.5 py-2.5 text-sm font-mono-code outline-none">
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2">
+                <button data-action="delete-current" class="key-press px-4 py-2.5 rounded-lg bg-rose-500/15 text-rose-500 text-xs font-extrabold" id="btn-delete">Excluir</button>
+                <button data-action="save-sheet" class="key-press px-6 py-2.5 rounded-lg bg-ink text-onink text-xs sm:text-sm font-extrabold" id="btn-save">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Тост уведомлений -->
+    <div id="action-toast" class="fixed bottom-6 inset-x-4 max-w-sm mx-auto bg-[#1A1C20] text-white px-4 py-3.5 rounded-xl shadow-2xl hidden items-center justify-between  text-sm font-medium touch-pan-x gap-3 border border-white/5" style="will-change: transform, opacity; z-index: 99999;">
+        <span id="toast-message" class="truncate flex-1 text-[#E5E7EB]">Copiado</span>
+        <button data-action="hide-toast" class="text-accent font-black shrink-0 uppercase text-[11px] tracking-wider px-2 py-1 rounded-md hover:bg-white/10 transition active:scale-95">OK</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "LinkBox — Organizador Inteligente de Links",
+  "short_name": "LinkBox",
+  "version": "1.0.0",
+  "description": "Clique no ícone para salvar a página atual na hora ou copie qualquer link (Ctrl+C) para salvar automaticamente. 100% em Português.",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "contextMenus"
+  ],
+  "action": {
+    "default_popup": "index.html?popup=1",
+    "default_title": "LinkBox — Clique para salvar esta página",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
