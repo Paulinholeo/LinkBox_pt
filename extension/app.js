@@ -115,6 +115,7 @@
 
         function getDB() {
             return new Promise((resolve, reject) => {
+                const timer = setTimeout(() => reject(new Error('IDB timeout')), 1200);
                 const request = indexedDB.open(DB_NAME, DB_VERSION);
                 request.onupgradeneeded = (event) => {
                     const db = event.target.result;
@@ -122,8 +123,8 @@
                         db.createObjectStore(STORE_NAME);
                     }
                 };
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
+                request.onsuccess = () => { clearTimeout(timer); resolve(request.result); };
+                request.onerror = () => { clearTimeout(timer); reject(request.error); };
             });
         }
 

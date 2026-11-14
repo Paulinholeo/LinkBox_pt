@@ -355,14 +355,13 @@
         }
         body.ext-popup {
             width: 420px;
-            min-width: 420px;
-            max-width: 420px;
+            max-width: 100vw;
             min-height: 540px;
             max-height: 600px;
             overflow-x: hidden;
         }
-        body.ext-popup .safe-top-header { padding-top: 0.65rem; padding-bottom: 0.65rem; }
-        body.ext-popup main { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        body.ext-popup .safe-top-header { padding: 0.65rem 0.75rem; }
+        body.ext-popup main { padding: 0.75rem; }
 
         :root {
             --bg-body: #F3F4F7;
@@ -597,9 +596,9 @@
                 </div>
                 <div class="flex items-stretch gap-1.5">
                     <div class="flex-1 grid grid-cols-3 gap-1 p-1 rounded-lg theme-input">
-                        <button data-action="set-sort" data-mode="newest" id="sort-newest-btn" class="key-press py-1.5 rounded-md text-xs font-bold transition">↓ Recentes</button>
-                        <button data-action="set-sort" data-mode="oldest" id="sort-oldest-btn" class="key-press py-1.5 rounded-md text-xs font-bold transition">↑ Antigos</button>
-                        <button data-action="set-sort" data-mode="az" id="sort-az-btn" class="key-press py-1.5 rounded-md text-xs font-bold transition">A–Z</button>
+                        <button data-action="set-sort" data-mode="newest" id="sort-newest-btn" class="key-press py-1.5 px-1 rounded-md text-[11px] font-bold transition whitespace-nowrap">↓ Recentes</button>
+                        <button data-action="set-sort" data-mode="oldest" id="sort-oldest-btn" class="key-press py-1.5 px-1 rounded-md text-[11px] font-bold transition whitespace-nowrap">↑ Antigos</button>
+                        <button data-action="set-sort" data-mode="az" id="sort-az-btn" class="key-press py-1.5 px-1 rounded-md text-[11px] font-bold transition whitespace-nowrap">A–Z</button>
                     </div>
                     <button type="button" data-action="open-calendar-sheet" title="Calendário de atividades" class="key-press w-[46px] rounded-lg theme-input flex items-center justify-center text-accent hover:bg-accent/15 transition shrink-0">
                         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -628,12 +627,12 @@
             </div>
             <div class="flex items-center gap-1.5">
                 <input id="ai-import-file" type="file" accept=".html,.htm,.txt,.json,.csv" class="hidden" >
-                <button data-action="trigger-import" class="key-press flex-1 h-10 px-2.5 rounded-lg bg-accent text-onaccent text-xs font-black flex items-center justify-center gap-1.5 min-w-0">
-                    <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="10" x2="12" y2="16"/><polyline points="9 13 12 16 15 13"/></svg>
+                <button data-action="trigger-import" class="key-press flex-1 h-10 px-2 rounded-lg bg-accent text-onaccent text-[11px] font-black flex items-center justify-center gap-1 min-w-0">
+                    <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="10" x2="12" y2="16"/><polyline points="9 13 12 16 15 13"/></svg>
                     <span id="btn-import-ai" class="truncate">Importar</span>
                 </button>
-                <button data-action="toggle-export-bar" class="key-press flex-1 h-10 px-2.5 rounded-lg theme-input text-xs font-bold flex items-center justify-center gap-1.5 min-w-0">
-                    <svg class="w-4 h-4 mono-icon shrink-0" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="16" x2="12" y2="10"/><polyline points="9 13 12 10 15 13"/></svg>
+                <button data-action="toggle-export-bar" class="key-press flex-1 h-10 px-2 rounded-lg theme-input text-[11px] font-bold flex items-center justify-center gap-1 min-w-0">
+                    <svg class="w-3.5 h-3.5 mono-icon shrink-0" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="16" x2="12" y2="10"/><polyline points="9 13 12 10 15 13"/></svg>
                     <span id="btn-export-html" class="truncate">Exportar</span>
                 </button>
                 <button data-action="open-ai-sheet" title="Pastas inteligentes: IA e reclassificação" class="key-press w-10 h-10 rounded-lg theme-input flex items-center justify-center hover:text-accent transition shrink-0">
@@ -675,16 +674,16 @@
                     </div>
                 </div>
 
-                <div class="flex items-center gap-2 shrink-0">
-                    <button data-action="toggle-autosave-copy" data-stop="1" id="autosave-copy-btn" title="Auto-salvar ao copiar link (ativo)" class="key-press h-10 px-2.5 rounded-lg theme-input flex items-center gap-1.5 text-xs font-bold transition">
+                <div class="flex items-center gap-1.5 shrink-0">
+                    <button data-action="toggle-autosave-copy" data-stop="1" id="autosave-copy-btn" title="Auto-salvar ao copiar link (ativo)" class="key-press h-9 px-2 rounded-lg theme-input flex items-center gap-1.5 text-xs font-bold transition">
                         <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
                         <span class="hidden sm:inline" id="btn-autosave-label">Auto-copiar</span>
                     </button>
-                    <button data-action="toggle-select-mode" data-stop="1" id="select-mode-btn" title="Seleção múltipla e exclusão" class="key-press w-10 h-10 rounded-lg theme-input flex items-center justify-center transition">
+                    <button data-action="toggle-select-mode" data-stop="1" id="select-mode-btn" title="Seleção múltipla e exclusão" class="key-press w-9 h-9 rounded-lg theme-input flex items-center justify-center transition">
                         <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
                     </button>
-                    <button data-action="open-sidebar" data-stop="1" id="btn-open-sidebar" class="key-press h-10 px-3.5 rounded-lg theme-input flex items-center gap-2 font-bold text-sm hover:opacity-90 transition lg:hidden">
-                        <svg class="w-5 h-5 mono-icon" viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="15" y2="17"/></svg>
+                    <button data-action="open-sidebar" data-stop="1" id="btn-open-sidebar" class="key-press h-9 px-2.5 rounded-lg theme-input flex items-center gap-1.5 font-bold text-xs sm:text-sm hover:opacity-90 transition lg:hidden">
+                        <svg class="w-4 h-4 mono-icon" viewBox="0 0 24 24"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="15" y2="17"/></svg>
                         <span id="btn-menu-label">Menu</span>
                     </button>
                 </div>
@@ -1204,6 +1203,7 @@
 
         function getDB() {
             return new Promise((resolve, reject) => {
+                const timer = setTimeout(() => reject(new Error('IDB timeout')), 1200);
                 const request = indexedDB.open(DB_NAME, DB_VERSION);
                 request.onupgradeneeded = (event) => {
                     const db = event.target.result;
@@ -1211,8 +1211,8 @@
                         db.createObjectStore(STORE_NAME);
                     }
                 };
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = () => reject(request.error);
+                request.onsuccess = () => { clearTimeout(timer); resolve(request.result); };
+                request.onerror = () => { clearTimeout(timer); reject(request.error); };
             });
         }
 

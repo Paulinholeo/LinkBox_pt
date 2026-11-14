@@ -1,45 +1,34 @@
-![Скриншот 1](images/screen1.jpg)
-![Скриншот 2](images/screen2.jpg)
+![LinkBox Desktop](images/screen1.png)
+![LinkBox Mobile e Extensão Chrome](images/screen2.png)
 
+# LinkBox — Organizador Inteligente de Links (PT-BR)
 
-# LinkBox - Smart Link Organiser 
+Um organizador de links **100% em Português**, com **design responsivo** (desktop, celular e extensão do Google Chrome), pensado para quem salva links “para ver depois” e quer encontrá-los na hora.
 
-Android-додаток для тих, хто зберігає посилання «на потім», а потім ніколи їх не відкриває.
+Sem cadastro, sem nuvem obrigatória, sem “entrar com Google”. Os dados ficam salvos localmente no seu navegador/dispositivo.
 
-Без реєстрації, без хмари, без «увійдіть через Google». Поставив — і все. Дані лежать на телефоні і нікуди самі не втікають.
+## Recursos principais
 
-Кидаєш одне посилання чи цілий список — додаток сам намагається зрозуміти, що це за сайт, і кидає в нормальну папку. Можна додати свої категорії, навішати хештеги, закріпити важливе зверху, щоб не шукати потім по всьому списку. Є нормальний пошук, сортування і навіть календар: можна глянути, що ти взагалі зберігав того дивного вівторка три тижні тому.
-
-Без інтернету теж працює. Посилання просто чекають у черзі. З’явиться мережа — підтягне заголовки й описи. Нічого не губиться.
-
-ШІ підключати не обов’язково. Є вбудовані правила, які цілком нормально справляються і ще й вчаться на твоїх правках. Але якщо захочеш розумніший розклад — можна підкинути ключ від Gemini, Groq, Mistral, OpenRouter і ще купи всього.
-
-Три теми (включаючи нормальний чорний AMOLED, а не «сірий із претензією»), три вигляди карток, масове редагування, імпорт і експорт. З браузера, телеграма чи будь-якого іншого додатка можна кидати посилання напряму — воно одразу потрапляє в LinkBox.
-
-Коротше, щоб закладки нарешті перестали бути місцем, куди все зникає і більше ніколи не знаходиться.
-
----
-**Встановити**  
-АПК → [Releases](https://github.com/13symbols/LinkBox/tree/main/releases)
+- **Extensão Google Chrome (1 clique para salvar):** clicou no ícone do LinkBox no navegador, a página atual já é salva e categorizada automaticamente.
+- **Auto-salvar ao copiar:** com o botão **Auto-copiar** ativo, qualquer link copiado (`Ctrl+C`) em qualquer site (pela extensão) ou colado no app é salvo automaticamente.
+- **Categorização inteligente + IA opcional:** regras locais em português classificam links por domínio e conteúdo e aprendem com suas edições. Se quiser, conecte sua chave de API do **Gemini, Groq, Mistral, OpenRouter, DeepSeek, Claude ou OpenAI**.
+- **Design responsivo:** barra lateral fixa no desktop, gaveta deslizante no celular, modo compacto no popup da extensão, 3 modos de visualização (Cartões pequenos, Cartões grandes e Lista) e 3 temas (Claro, Escuro e AMOLED).
+- **Organização completa:** múltiplas pastas por link, `#hashtags`, barra rápida fixada (Pin-bar), prioridade na pasta, busca instantânea, link aleatório, calendário de atividades, edição em massa, QR Code e bloqueio de abertura direta (modo Cofre / 18+).
+- **Offline-first e Backup:** links salvos sem internet ficam na fila **Aguardando rede** e são atualizados quando a conexão volta. Exportação e importação em `.HTML` (favoritos de navegador) e `.JSON` (backup completo).
 
 ---
 
-# LinkBox - Smart Link Organiser 
+## Como usar a Extensão no Google Chrome
 
-An Android app for people who save links “for later” and then never open them again.
+1. Baixe ou clone este repositório.
+2. Abra `chrome://extensions/` no Google Chrome.
+3. Ative o **Modo do desenvolvedor** (canto superior direito).
+4. Clique em **Carregar sem compactação** e selecione a pasta `extension/`.
+5. Fixe o ícone do **LinkBox** na barra do Chrome:
+   - **Clique no ícone:** salva a página atual na hora e exibe seus links.
+   - **Copie um link (`Ctrl+C`) em qualquer site:** o LinkBox captura e salva automaticamente.
+   - **Botão direito na página/link:** use *Salvar página no LinkBox* ou *Salvar link no LinkBox*.
 
-No sign-up, no cloud, no “continue with Google”. Install and that’s it. Data stays on the phone and doesn’t wander off on its own.
+## Como usar no Navegador / Celular
 
-Throw in one link or a whole list — the app tries to figure ou what the site is and drops it into a decent folder. You can add your own categories, slap on hashtags, pin the important stuff to the top so you don’t have to dig through the entire list later. There’s proper search, sorting, and even a calendar: you can check what the hell you saved that weird Tuesday three weeks ago.
-
-Works offline too. Links just sit in a queue. Internet comes back — it pulls titles and descriptions. Nothing gets lost.
-
-AI is optional. Built-in rules do a solid job and even learn from your corrections. But if you want smarter sorting, you can drop in a key for Gemini, Groq, Mistral, OpenRouter and a bunch of others.
-
-Three themes (including a proper AMOLED black, not some “almost black” gray), three card layouts, bulk editing, import and export. You can share links straight from the browser, Telegram or any other app — they land in LinkBox immediately.
-
-In short: so your bookmarks finally stop being the place where things go to disappear forever.
-
----
-**Install**  
-APK → [Releases](https://github.com/13symbols/LinkBox/tree/main/releases)
+Abra o arquivo [index.html](index.html) diretamente no navegador ou hospede como página estática / PWA.
